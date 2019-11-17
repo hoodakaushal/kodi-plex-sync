@@ -18,6 +18,7 @@ Usage/Config:
 Change the endpoints for plex and kodi according to your setup in sync.py
 
 Set the sync mode and strictness as you want (default is bidirectional sync without strict checking)
+
     Sync mode:
     0 -> UNIDIRECTIONAL FROM a to b, a always overrides b. In strict mode media in b but not a is ignored.
     1 -> BIDIRECTIONAL, if a and b conflict, mark both as watched

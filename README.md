@@ -1,5 +1,6 @@
 Script to sync watched status between media centers, supports Kodi and Plex for now.
 Both Episodes and Movies are supported. Sync at Tv Show/season level is not supported.
+Basic knowledge of python is expected to configure/run this.
 
 Matching files across media centers is done by file path. A video in plex and kodi is considered same if they both have the same underlying file.
 This has the advantage of not requiring any external API (eg TVDB) and can be run offline.

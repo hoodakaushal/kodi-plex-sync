@@ -38,3 +38,5 @@ Note on Auth:
 By default the script expects to be able to connect to Kodi without auth, and for Plex an auth token is supported.
 For plex if you want to use username/password instead, you'll need to change the connect code. Internally plexapi
 is used to connect to plex, refer their docs for more connection methods - https://pypi.org/project/PlexAPI/
+
+I don't intend to actively maintain it, but feel free to hit me up if you have a request/suggestion.

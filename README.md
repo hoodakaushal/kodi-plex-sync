@@ -30,6 +30,16 @@ Set the sync mode and strictness as you want (default is bidirectional sync with
     True -> If media in a and not b, raise error. If media in b and not a, raise error only for BIDIRECTIONAL sync mode.
     False -> Ignore discrepancies in media in a and b.
     Note that if strict, checking is done before doing any updates.
+    
+    a and b are the first and second argument to the MediaSyncer constructor (the second to last line in kodiplex/sync.py)
+ 
+ The default is bidirectional sync. If you wanted to sync only from kodi to plex, you need to change that line to
+
+    sync = MediaSyncer(kodiMedia, plexMedia, 0, strict=False)
+
+ And for syncing only from plex to kodi,
+
+    sync = MediaSyncer(plexMedia, kodiMedia, 0, strict=False)
 
 And just let it run!
 

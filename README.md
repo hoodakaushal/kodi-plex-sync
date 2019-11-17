@@ -32,6 +32,8 @@ Set the sync mode and strictness as you want (default is bidirectional sync with
 
 And just let it run!
 
+Once you have it configured to work with your setup, you can have it run periodically via Scheduled Task/cron.
+
 Note on Auth:
 By default the script expects to be able to connect to Kodi without auth, and for Plex an auth token is supported.
 For plex if you want to use username/password instead, you'll need to change the connect code. Internally plexapi

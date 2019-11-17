@@ -17,7 +17,7 @@ plexapi and requests module for python (pip install -r requirements.txt)
 
 Usage/Config:
 Change the endpoints for plex and kodi according to your setup in sync.py and execute it as a python module
-(refer to sync.sh/sync.bat for sample command)
+(refer to run.sh/run.bat for sample command)
 
 Set the sync mode and strictness as you want (default is bidirectional sync without strict checking)
 

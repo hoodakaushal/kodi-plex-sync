@@ -83,6 +83,7 @@ class MediaSyncer:
             self.unidirectionalSync()
         else:
             self.bidirectionalSync()
+        logger.info("Sync complete")
 
 
 def getKodiMedia(kodiUrl: str):

@@ -120,4 +120,4 @@ if __name__ == "__main__":
     kodiMedia = getKodiMedia("http://localhost:8080")
     plexMedia = getPlexMedia("http://192.168.0.100:32400")
     sync = MediaSyncer(kodiMedia, plexMedia, 1, strict=False)
-    sync.bidirectionalSync()
+    sync.sync()

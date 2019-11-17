@@ -44,15 +44,16 @@ class KodiMedia(Media):
 
     def updateWatched(self, watched: bool):
         logger.debug("Setting {} watched to {}".format(self.raw, watched))
-        # if watched:
-        #     if "movieid" in self.raw:
-        #         self.kodi.markMovieWatched(self.raw)
-        #     else:
-        #         self.kodi.markEpisodeWatched(self.raw)
-        # if "movieid" in self.raw:
-        #     self.kodi.markMovieUnwatched(self.raw)
-        # else:
-        #     self.kodi.markEpisodeUnwatched(self.raw)
+        if watched:
+            if "movieid" in self.raw:
+                return self.kodi.markMovieWatched(self.raw)
+            else:
+                return self.kodi.markEpisodeWatched(self.raw)
+        else:
+            if "movieid" in self.raw:
+                return self.kodi.markMovieUnwatched(self.raw)
+            else:
+                return self.kodi.markEpisodeUnwatched(self.raw)
 
 
 class PlexMedia(Media):
@@ -61,7 +62,7 @@ class PlexMedia(Media):
 
     def updateWatched(self, watched: bool):
         logger.debug("Setting {} watched to {}".format(self.raw, watched))
-        # if watched:
-        #     self.raw.markWatched()
-        # else:
-        #     self.raw.markUnwatched()
+        if watched:
+            self.raw.markWatched()
+        else:
+            self.raw.markUnwatched()

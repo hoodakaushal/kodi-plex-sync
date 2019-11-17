@@ -4,11 +4,15 @@ import requests
 
 
 # noinspection PyPep8Naming
+from logger import logger
+
+
 class KodiRPC:
     def __init__(self, serverUrl="http://localhost:8080"):
         self.server = serverUrl + "/jsonrpc"
 
     def rpc(self, method: str = "JSONRPC.Introspect", params: dict = None, requestId=1):
+        logger.debug("RPC {} {}".format(method, params))
         if params is None:
             params = {}
         data = {

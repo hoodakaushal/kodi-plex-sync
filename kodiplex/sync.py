@@ -87,7 +87,7 @@ class MediaSyncer:
 
 def getKodiMedia(kodiUrl: str):
     kodi = KodiRPC(kodiUrl)
-    kodiMedia = kodi.getEpisodes() + kodi.getMovies()
+    kodiMedia = kodi.getMovies() + kodi.getEpisodes()
     kodiMedia = [KodiMedia(x["file"], x, kodi) for x in kodiMedia]
     return kodiMedia
 

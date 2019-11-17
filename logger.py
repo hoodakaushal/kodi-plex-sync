@@ -1,7 +1,7 @@
 import logging
 
 logger = logging.getLogger('kodiplex')
-level = logging.DEBUG
+level = logging.INFO
 logger.setLevel(level)
 # create file handler which logs even debug messages
 fh = logging.FileHandler('kodiplex.log')

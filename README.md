@@ -1,5 +1,6 @@
 Script to sync watched status between media centers, supports Kodi and Plex for now.
 Both Episodes and Movies are supported. Sync at Tv Show/season level is not supported.
+Basic knowledge of python is expected to configure/run this.
 
 Matching files across media centers is done by file path. A video in plex and kodi is considered same if they both have the same underlying file.
 This has the advantage of not requiring any external API (eg TVDB) and can be run offline.
@@ -18,6 +19,7 @@ Usage/Config:
 Change the endpoints for plex and kodi according to your setup in sync.py
 
 Set the sync mode and strictness as you want (default is bidirectional sync without strict checking)
+
     Sync mode:
     0 -> UNIDIRECTIONAL FROM a to b, a always overrides b. In strict mode media in b but not a is ignored.
     1 -> BIDIRECTIONAL, if a and b conflict, mark both as watched
@@ -30,7 +32,11 @@ Set the sync mode and strictness as you want (default is bidirectional sync with
 
 And just let it run!
 
+Once you have it configured to work with your setup, you can have it run periodically via Scheduled Task/cron.
+
 Note on Auth:
 By default the script expects to be able to connect to Kodi without auth, and for Plex an auth token is supported.
 For plex if you want to use username/password instead, you'll need to change the connect code. Internally plexapi
 is used to connect to plex, refer their docs for more connection methods - https://pypi.org/project/PlexAPI/
+
+I don't intend to actively maintain it, but feel free to hit me up if you have a request/suggestion.

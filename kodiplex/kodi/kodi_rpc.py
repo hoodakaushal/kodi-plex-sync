@@ -29,6 +29,48 @@ class KodiRPC:
     def getDocs(self):
         return self.rpc()
 
+    def getEpisodes(self):
+        params = {
+            "properties": ["playcount", "file"]
+        }
+        return self.rpc("VideoLibrary.GetEpisodes", params)["episodes"]
+
+    def markEpisodeWatched(self, episode):
+        if episode["playcount"] == 0:
+            params = {
+                "episodeid": episode["episodeid"],
+                "playcount": 1
+            }
+            return self.rpc("VideoLibrary.SetEpisodeDetails", params)
+
+    def markEpisodeUnwatched(self, episode):
+        params = {
+            "episodeid": episode["episodeid"],
+            "playcount": 0
+        }
+        return self.rpc("VideoLibrary.SetEpisodeDetails", params)
+
+    def getMovies(self):
+        params = {
+            "properties": ["playcount", "file"]
+        }
+        return self.rpc("VideoLibrary.GetMovies", params)["movies"]
+
+    def markMovieWatched(self, movie):
+        if movie["playcount"] == 0:
+            params = {
+                "movieid": movie["movieid"],
+                "playcount": 1
+            }
+            return self.rpc("VideoLibrary.SetMovieDetails", params)
+
+    def markMovieUnwatched(self, movie):
+        params = {
+            "movieid": movie["movieid"],
+            "playcount": 0
+        }
+        return self.rpc("VideoLibrary.SetMovieDetails", params)
+
 
 if __name__ == "__main__":
-    print(json.dumps(KodiRPC().getDocs(), indent=4))
+    print(json.dumps(KodiRPC().getEpisodes(), indent=4))

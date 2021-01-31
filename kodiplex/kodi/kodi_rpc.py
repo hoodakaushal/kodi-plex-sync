@@ -2,7 +2,6 @@ import json
 
 import requests
 
-
 # noinspection PyPep8Naming
 from logger import logger
 
@@ -74,6 +73,17 @@ class KodiRPC:
             "playcount": 0
         }
         return self.rpc("VideoLibrary.SetMovieDetails", params)
+
+    def removeEmptyShows(self):
+        shows = self.rpc(method="VideoLibrary.GetTvShows")["tvshows"]
+        for show in shows:
+            show["episode"] = self.rpc(method="VideoLibrary.GetTVShowDetails",
+                                       params={"tvshowid": show["tvshowid"], "properties": ["episode"]}
+                                       )["tvshowdetails"]["episode"]
+        for show in shows:
+            if show["episode"] == 0:
+                logger.info("Removing show {}".format(show))
+                self.rpc(method="VideoLibrary.RemoveTVShow", params={"tvshowid": show["tvshowid"]})
 
 
 if __name__ == "__main__":
